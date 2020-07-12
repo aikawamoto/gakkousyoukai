@@ -1,0 +1,100 @@
+<!DOCTYPE HTML>
+<html>
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no, viewport-fit=cover">
+  <meta http-equiv="Content-Security-Policy" content="default-src * data: gap: https://ssl.gstatic.com; style-src * 'unsafe-inline'; script-src * 'unsafe-inline' 'unsafe-eval'">
+  <script src="components/loader.js"></script>
+  <script src="lib/onsenui/js/onsenui.min.js"></script>
+
+  <link rel="stylesheet" href="components/loader.css">
+  <link rel="stylesheet" href="lib/onsenui/css/onsenui.css">
+  <link rel="stylesheet" href="lib/onsenui/css/onsen-css-components.css">
+  <link rel="stylesheet" href="css/style.css">
+
+  <script>
+    // Page init event
+    document.addEventListener('init', function(event) {
+      var page = event.target;
+
+      if (page.matches('#first-page')) {
+
+        page.querySelector('#push-button').onclick = function() {
+          document.querySelector('#navigator').pushPage('page3.html');
+          
+        };
+
+      } else if (page.matches('#second-page')) {
+
+        page.querySelector('#pop-button').onclick = function() {
+          document.querySelector('#navigator').popPage();
+        };
+
+      }
+    });
+
+    if (ons.platform.isIPhoneX()) {
+      document.documentElement.setAttribute('onsflag-iphonex-portrait', '');
+      document.documentElement.setAttribute('onsflag-iphonex-landscape', '');
+    }
+  </script>
+</head>
+<body>
+  <ons-navigator id="navigator" page="page1.html"></ons-navigator>
+
+  <ons-template id="page1.html">
+    <ons-page id="first-page">
+      <ons-toolbar>
+        <div class="center" style="text-align: left">HCMTintro.</div>
+      </ons-toolbar>
+
+      <div class="content" style="text-align: left">
+        <p>広島商船や大崎上島のことが知れる</p>
+         <div class="block-title">機能一覧</div> 
+
+        <ons-button id="push-button" class="btn_arrow"  style="text-align: left">学校の紹介</ons-button>
+        <ons-button id="push-button2" class="btn_arrow"  style="text-align: left">寮の紹介</ons-button>
+        <ons-button id="push-button3" class="btn_arrow"  style="text-align: left">部活動紹介</ons-button>
+        <ons-button id="push-button4" class="btn_arrow"  style="text-align: left">学校行事</ons-button>
+        <ons-button id="push-button5" class="btn_arrow"  style="text-align: left">学科紹介</ons-button>
+        <ons-button id="push-button6" class="btn_arrow"  style="text-align: left">島のおすすめな場所</ons-button>
+        <ons-button id="push-button7" class="btn_arrow"  style="text-align: left">学食</ons-button>
+       <ons-button id="push-button8" class="btn_arrow"  style="text-align: left">時間割</ons-button>
+
+      </div>
+    </ons-page>
+  </ons-template>
+
+  <ons-template id="page2.html">
+    <ons-page id="second-page">
+      <ons-toolbar>
+        <div class="left"><ons-back-button>Page 1</ons-back-button></div>
+        <div class="center">Page 2</div>
+      </ons-toolbar>
+
+      <div class="content" style="text-align: center">
+        <p>This is the second page.</p>
+        <ons-button id="pop-button9">Pop page</ons-button>
+      </div>
+      
+    </ons-page>
+  </ons-template>
+
+   <ons-template id="page3.html">
+    <ons-page id="third-page">
+      <ons-toolbar>
+        <div class="left"><ons-back-button>Page 1</ons-back-button></div>
+        <div class="center">Page 2</div>
+      </ons-toolbar>
+
+      <div class="content" style="text-align: center">
+        <p>This is the second page.</p>
+        <ons-button id="pop-button10"class="btn_arrow"  style="text-align: left">対面授業</ons-button>
+        <ons-button id="pop-button11"class="btn_arrow"  style="text-align: left">遠隔授業</ons-button>
+      </div>
+      
+    </ons-page>
+  </ons-template>
+
+</body>
+</html>
